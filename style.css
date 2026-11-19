@@ -1,0 +1,124 @@
+/* Site-wide palette, typography, and page width. */
+:root {
+  --ink: #19374b;
+  --body: #354653;
+  --link: #205b80;
+  --line: #d5dfe4;
+  --muted: #526776;
+  --serif: "Baskervville", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 1.5rem; }
+body { margin: 0; font: 1rem/1.65 var(--sans); color: var(--body); background: #fff; }
+a { color: var(--link); text-underline-offset: .19em; text-decoration-color: #aac2d1; }
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible, summary:focus-visible, select:focus-visible { outline: 3px solid #c07634; outline-offset: 4px; }
+.wrap { width: min(1120px, 88%); margin-inline: auto; }
+h1, h2, h3, h4, p { margin: 0; }
+h1, h2, h3, h4 { color: var(--ink); }
+h2 { font: 400 clamp(2rem, 3.3vw, 2.7rem)/1.15 var(--serif); letter-spacing: -.045em; }
+.skip, .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.skip:focus { clip-path: none; width: auto; height: auto; padding: .5rem 1rem; z-index: 2; background: white; }
+[hidden] { display: none !important; }
+
+/* Page navigation and the original Lake Mendota cover photograph. */
+.header-inner, nav, .brand, .contact, .contact a, .section-head, footer .wrap { display: flex; align-items: center; }
+.header-inner, .section-head, footer .wrap { justify-content: space-between; }
+.header-inner { min-height: 66px; gap: 1.5rem; }
+.brand { gap: .7rem; color: var(--ink); text-decoration: none; white-space: nowrap; font: 600 1.2rem/1 var(--serif); }
+.monogram { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 4px; font: 1.15rem var(--serif); letter-spacing: -.1em; padding-right: .1em; background: var(--ink); color: white; }
+nav { gap: clamp(1rem, 3vw, 2.25rem); }
+nav a { font-size: .9rem; font-weight: 550; color: var(--body); text-decoration: none; padding-block: .45rem; }
+nav a:hover, footer a:hover { text-decoration: underline; }
+.hero { position: relative; color: white; isolation: isolate; background: #233f56 url("assets/lake-mendota.jpg") center 58% / cover no-repeat; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(12 34 51 / .91) 0%, rgb(16 42 63 / .8) 30%, rgb(21 50 70 / .38) 66%, rgb(18 45 64 / .19) 100%), linear-gradient(0deg, rgb(10 31 50 / .42), transparent 58%); }
+.hero-inner { min-height: 340px; display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding-block: 3.4rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .19em; font-size: .76rem; font-weight: 650; }
+.hero-label { display: flex; align-items: center; gap: .7rem; color: #e8f2f6; }
+.hero-label span { width: 26px; height: 2px; background: #c4d7dd; }
+h1 { color: white; font: 400 clamp(3.5rem, 6vw, 5.25rem)/1.12 var(--serif); letter-spacing: -.055em; margin: .45rem 0 .6rem; }
+h1 span { display: inline-block; font: 400 clamp(1.25rem, 2vw, 1.65rem)/1.3 "Noto Serif CJK SC", "Songti SC", serif; letter-spacing: .09em; color: #e1ebef; vertical-align: .13em; padding-left: .25rem; }
+.role { font-size: 1.15rem; font-weight: 550; }
+.affiliation { color: #ecf2f5; font-size: .98rem; }
+.contact { gap: .6rem; flex-wrap: wrap; margin-top: 1.3rem; }
+.contact a { gap: .47rem; padding: .38rem .8rem; border: 1px solid #afbdc8; border-radius: 5px; background: #1c384bd9; color: white; font-size: .875rem; font-weight: 550; text-decoration: none; }
+.contact a:hover { background: #fff; color: var(--ink); }
+svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+svg.filled { fill: currentColor; stroke: none; }
+.portrait { width: clamp(165px, 16vw, 205px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 4px solid #ffffffdf; box-shadow: 0 7px 28px #132d3f55; margin-right: 3%; }
+.photo-caption { position: absolute; bottom: .55rem; right: max(1rem, 3%); font-size: .76rem; color: #fff; display: flex; align-items: center; gap: .25rem; text-shadow: 0 1px 4px #14283a; }
+.photo-caption svg { width: .78rem; }
+
+/* Biography and chronological news. */
+.overview { display: grid; grid-template-columns: minmax(0, 1.36fr) minmax(0, 1fr); gap: clamp(2rem, 5.7vw, 5.5rem); padding: 3rem 0; }
+#about > p { margin-top: 1rem; }
+#news { border-left: 1px solid var(--line); padding-left: clamp(1.5rem, 3.8vw, 3.4rem); }
+.topics, .news-list { list-style: none; padding: 0; }
+.topics { display: flex; gap: .45rem; flex-wrap: wrap; margin: 1.1rem 0 1.4rem; }
+.topics li { padding: .17rem .62rem; background: #edf3f6; color: #355a6d; font-size: .82rem; border-radius: 4px; }
+.recruit { border-left: 3px solid #649296; background: #f1f6f5; padding: .7rem 1rem; }
+.recruit strong { font-size: .9rem; color: var(--ink); }
+.recruit p { font-size: .92rem; line-height: 1.5; margin-top: .1rem; }
+.news-list { margin: .35rem 0 0; }
+.news-list li { display: grid; grid-template-columns: 5.2rem 1fr; gap: .65rem; padding: .86rem 0; border-bottom: 1px solid #e4eaed; font-size: .94rem; line-height: 1.48; }
+.news-list strong { color: var(--ink); font-weight: 600; }
+.news-list time, .dates { font-size: .86rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.news-list time { padding-top: .06rem; }
+.archive summary { display: inline-flex; align-items: baseline; gap: .5rem; cursor: pointer; color: var(--link); font-size: .89rem; font-weight: 600; margin-top: 1rem; }
+.archive summary::after { content: "+"; font-weight: 400; }
+.archive summary::-webkit-details-marker { display: none; }
+.archive[open] summary::after { content: "−"; }
+
+/* Publication entries and experience. */
+.major { border-top: 1px solid var(--line); padding: 2.6rem 0 3rem; }
+.section-head { gap: 1rem; margin-bottom: 1.75rem; }
+.year-filter { position: relative; }
+.year-filter::after { content: ""; width: .4rem; height: .4rem; border: solid var(--muted); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); position: absolute; right: .85rem; top: 39%; pointer-events: none; }
+select { border: 1px solid #bac9d1; border-radius: 5px; background: white; color: var(--ink); font: inherit; font-size: .9rem; padding: .45rem 2rem .45rem .8rem; appearance: none; }
+.year-group { display: grid; grid-template-columns: clamp(5rem, 13vw, 10.5rem) 1fr; padding-top: 1.35rem; border-top: 1px solid var(--line); }
+.year-group > h3 { font: 400 2rem/1.15 var(--serif); }
+.paper { padding: 0 0 1.3rem; margin-bottom: 1.2rem; border-bottom: 1px solid #e1e7ea; }
+.paper:last-child { border: 0; margin: 0; }
+.venue { color: #42687c; font-size: .94rem; font-weight: 700; letter-spacing: .05em; }
+.honor { color: #79561f; margin-left: .5rem; font-weight: 550; letter-spacing: 0; }
+.paper h4 { font: 600 clamp(1.15rem, 2vw, 1.4rem)/1.35 var(--serif); margin: .24rem 0; }
+.paper h4 a { color: var(--ink); text-decoration: none; }
+.paper h4 a:hover { text-decoration: underline; }
+.authors { font-size: .94rem; color: var(--muted); }
+.authors strong { font-weight: 650; color: var(--body); }
+.paper-links { display: flex; gap: 1rem; margin-top: .35rem; font-size: .86rem; font-weight: 600; }
+.job { display: grid; grid-template-columns: clamp(9.5rem, 19vw, 15rem) 1fr; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
+#experience h2 { margin-bottom: 1rem; }
+.job h3 { font: 600 1.25rem/1.4 var(--serif); }
+.job-detail { color: var(--muted); font-size: .9rem; }
+footer { background: #eef3f5; }
+footer .wrap { padding-block: 1.4rem; font-size: .9rem; }
+footer span span { margin-left: .5rem; }
+
+@media (max-width: 800px) {
+  .overview { grid-template-columns: 1fr; gap: 2.3rem; }
+  #news { border: 0; padding-left: 0; }
+  .hero-inner { min-height: 315px; }
+  .portrait { width: 145px; margin-right: 0; }
+}
+@media (max-width: 600px) {
+  .wrap { width: 90%; }
+  .header-inner { display: block; padding: .7rem 0 .35rem; }
+  nav { justify-content: space-between; gap: .5rem; margin-top: .3rem; }
+  nav a { font-size: .86rem; }
+  .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 1rem; padding: 1.8rem 0 2.7rem; }
+  .portrait { width: 90px; border-width: 2px; }
+  .hero { background-position: 57% 55%; }
+  .hero::before { background: linear-gradient(90deg, #102e43e8, #102d44a3 70%, #102d4466); }
+  h1 { font-size: clamp(2.9rem, 11vw, 3.8rem); }
+  h1 span { font-size: 1.1rem; }
+  .role { font-size: 1.06rem; }
+  .contact { gap: .4rem; }
+  .contact a { padding: .36rem .58rem; }
+  .overview, .major { padding-block: 2rem; }
+  .year-group, .job { display: block; }
+  .year-group > h3 { margin-bottom: 1rem; font-size: 1.6rem; }
+  .news-list li { grid-template-columns: 4.8rem 1fr; }
+  .dates { display: block; margin-bottom: .35rem; }
+}
